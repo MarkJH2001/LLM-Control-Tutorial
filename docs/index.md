@@ -9,11 +9,9 @@ An applied tutorial covering **LLM fundamentals**, **API usage**, and **agentic 
 - **Agentic Workflows** — loops, memory, multi-agent patterns.
 - **LLM + Control** — applying LLMs to control-systems problems.
 
-## Interactive notebooks
+## Running the code
 
-Code cells on this site are powered by [marimo](https://marimo.io) and run **directly in your browser** via WebAssembly — no install required for the basic demos.
-
-For examples that make real API calls, download the notebook and run it locally in the `llm-tutorial` conda env.
+Code samples on this site are shown inline with their output. To run them yourself, follow [Setup](getting-started/setup.md) to create the `llm-tutorial` conda env, then execute the snippets locally.
 
 !!! tip "Getting started"
     See [Setup](getting-started/setup.md) to prepare your local environment, then head to [LLM Basics](llm-basics/index.md).

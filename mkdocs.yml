@@ -12,10 +12,12 @@ docs_dir: docs
 theme:
   name: material
   language: en
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
   features:
     - navigation.tabs
     - navigation.tabs.sticky
-    - navigation.sections
+    - navigation.expand
     - navigation.indexes
     - navigation.top
     - navigation.tracking
@@ -41,11 +43,11 @@ theme:
         icon: material/brightness-4
         name: Switch to light mode
   icon:
+    logo: material/satellite-variant
     repo: fontawesome/brands/github
 
 plugins:
   - search
-  - marimo
   - glightbox
 
 markdown_extensions:
@@ -76,9 +78,13 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
 
+extra_css:
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
+
 extra_javascript:
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/katex.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
+  - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
 
 nav:
   - Home: index.md
@@ -91,9 +97,16 @@ nav:
       - What is an LLM: llm-basics/what-is-an-llm.md
       - Tokens: llm-basics/tokens.md
       - Sampling: llm-basics/sampling.md
+      - Context Window: llm-basics/context-window.md
   - Calling the API:
       - api/index.md
+      - Get an API Key:
+          - api/get-a-key/index.md
+          - OpenAI: api/get-a-key/openai.md
+          - DeepSeek: api/get-a-key/deepseek.md
+          - Qwen: api/get-a-key/qwen.md
       - First Call: api/first-call.md
+      - Unified Client: api/unified-client.md
       - Streaming: api/streaming.md
       - Tool Use: api/tool-use.md
   - Agentic Workflows:

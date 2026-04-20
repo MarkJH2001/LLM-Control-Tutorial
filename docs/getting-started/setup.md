@@ -11,7 +11,7 @@ pip install -e .
 ## Verify
 
 ```bash
-python -c "import anthropic, marimo; print(anthropic.__version__, marimo.__version__)"
+python -c "import anthropic, openai; print(anthropic.__version__, openai.__version__)"
 ```
 
 ## Serving the site locally

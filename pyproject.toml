@@ -8,11 +8,8 @@ requires-python = ">=3.12"
 dependencies = [
     "mkdocs>=1.6",
     "mkdocs-material>=9.7",
-    "mkdocs-marimo>=0.2.1",
-    "marimo>=0.23",
     "pymdown-extensions>=10.14",
     "mkdocs-glightbox>=0.4",
-    "anthropic>=0.40",
     "openai>=1.60",
     "numpy>=2.0",
     "scipy>=1.14",
