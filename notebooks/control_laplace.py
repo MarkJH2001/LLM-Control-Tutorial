@@ -18,7 +18,11 @@
 #
 # Companion to [**LLM + Control → Laplace Transforms**](https://markjh2001.github.io/LLM-Control-Tutorial/control/laplace/).
 #
-# Solve **Homework 2 Problem 3.3** (forward Laplace transforms) and **Homework 3 Problem 3.7** (inverse transforms via partial fractions) with a plain prompt and confirm the answers come back matching the textbook at `temperature=0`. No tool, no agent loop — a capable modern model handles both directions directly. Later notebooks (Routh–Hurwitz, Nyquist, PID tuning) are where the tool + checker patterns earn their keep.
+# Three canonical textbook problems, each solved with a plain prompt at `temperature=0`:
+#
+# - **Homework 2, Problem 3.3(b)** — forward Laplace transform
+# - **Homework 3, Problem 3.7(h)** — inverse via partial-fraction expansion
+# - **Homework 3, Problem 3.9(e)** — second-order ODE, solved via Laplace
 
 # %% [markdown]
 # ## 1. Install dependencies
@@ -186,5 +190,4 @@ print(resp.choices[0].message.content)
 #
 # ## Next
 #
-# - Back to the [LLM + Control overview](https://markjh2001.github.io/LLM-Control-Tutorial/control/).
-# - Upcoming pages (Routh–Hurwitz, Nyquist, PID tuning) are where plain prompting stops being sufficient and the tool / agent-loop patterns from earlier sections become necessary.
+# Back to the [LLM + Control overview](https://markjh2001.github.io/LLM-Control-Tutorial/control/), or forward to the upcoming Routh–Hurwitz page.

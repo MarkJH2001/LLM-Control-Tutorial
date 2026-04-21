@@ -121,3 +121,6 @@ nav:
   - LLM + Control:
       - control/index.md
       - Laplace Transforms (HW 2 & 3): control/laplace.md
+      - Control Plots: control/plots.md
+      - PID Tuning: control/pid.md
+      - Real-World Applications: control/applications.md

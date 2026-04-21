@@ -18,3 +18,17 @@ Code samples are shown inline with their expected output. To run them yourself, 
 
 !!! tip "Start here"
     New to all of this? Go to [Setup](getting-started/setup.md) first, then [LLM Basics](llm-basics/index.md).
+
+## Learning resources
+
+Further reading and lectures to go deeper on how LLMs work under the hood.
+
+### Books
+
+- [**Build a Large Language Model From Scratch**](https://github.com/rasbt/LLMs-from-scratch) — Sebastian Raschka. End-to-end, code-first walk-through of training a transformer LLM from the ground up. Repo hosts the companion code.
+- [**Happy LLM**](https://github.com/datawhalechina/happy-llm) — Datawhale. Open-source tutorial (Chinese) on LLM principles and hands-on implementation.
+
+### Courses
+
+- [**Build an LLM from Scratch**](https://www.youtube.com/playlist?list=PLTKMiZHVd_2IIEsoJrWACkIxLRdfMlw11) — Sebastian Raschka's YouTube lecture series, companion to the book above.
+- [**Stanford CS236, Language Modelling from Scratch**](https://www.youtube.com/playlist?list=PLoROMvodv4rOY23Y0BoGoBGgQ1zmU_MT_) — Graduate-level lectures on building LLMs end-to-end: tokenization, architecture, pre-training, systems and efficiency, and post-training.

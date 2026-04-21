@@ -3,7 +3,7 @@
 [![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/control_laplace.ipynb)
 [![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/control_laplace.ipynb)
 
-The classic first exercise in a controls course: work the Laplace transform table. **Homework 2, Problem 3.3(b)** asks for a forward Laplace transform; **Homework 3, Problem 3.7(h)** asks for the inverse via partial-fraction expansion. This page sends each to the model with a plain prompt and shows the response.
+The classic first exercises in a controls course: work the Laplace transform table, run partial-fraction expansions, solve ODEs in the $s$-domain. This page takes three textbook problems — **Homework 2, Problem 3.3(b)** (forward transform), **Homework 3, Problem 3.7(h)** (inverse via partial-fraction expansion), and **Homework 3, Problem 3.9(e)** (a second-order ODE solved with Laplace) — and sends each to the model with a plain prompt.
 
 ## Forward transforms — Homework 2, Problem 3.3(b)
 
@@ -36,7 +36,6 @@ print(resp.choices[0].message.content)
 
 ??? example "Actual output — qwen-plus (2026-04-21)"
 
-    ```text
     We are asked to find the **Laplace transform** of
 
     \[
@@ -56,7 +55,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Term 1: \( \cos(2t) \)
+    **Term 1: \( \cos(2t) \)**
 
     \[
     \mathcal{L}\{\cos(2t)\} = \frac{s}{s^2 + 2^2} = \frac{s}{s^2 + 4}
@@ -64,7 +63,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Term 2: \( 4\sin(5t) \)
+    **Term 2: \( 4\sin(5t) \)**
 
     \[
     \mathcal{L}\{4\sin(5t)\} = 4 \cdot \frac{5}{s^2 + 5^2} = \frac{20}{s^2 + 25}
@@ -72,7 +71,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Term 3: \( e^{-2t}\cos(7t) \)
+    **Term 3: \( e^{-2t}\cos(7t) \)**
 
     Use the **s-shift property**:
     If \( \mathcal{L}\{g(t)\} = G(s) \), then \( \mathcal{L}\{e^{at}g(t)\} = G(s - a) \).
@@ -84,7 +83,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Combine all terms:
+    **Combine all terms:**
 
     \[
     \boxed{
@@ -104,7 +103,7 @@ print(resp.choices[0].message.content)
     \boxed{
     F(s) = \frac{s}{s^2 + 4} + \frac{20}{s^2 + 25} + \frac{s + 2}{s^2 + 4s + 53}, \quad \text{Re}(s) > 0
     }
-    ```
+    \]
 
 The final boxed expression matches the textbook term-for-term. Note that the model even volunteers the region-of-convergence discussion — behavior you'd reward in a homework submission but didn't have to prompt for. At `temperature=0` the model isn't deriving the transform from first principles; it's recalling it, and recalling deterministically.
 
@@ -139,7 +138,6 @@ print(resp.choices[0].message.content)
 
 ??? example "Actual output — qwen-plus (2026-04-21)"
 
-    ```text
     We are given the Laplace transform:
 
     \[
@@ -150,7 +148,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 1: Factor the denominator
+    **Step 1: Factor the denominator**
 
     \[
     s^2 - s - 2 = (s - 2)(s + 1)
@@ -165,7 +163,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 2: Partial fraction decomposition
+    **Step 2: Partial fraction decomposition**
 
     Assume:
 
@@ -210,7 +208,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 3: Inverse Laplace transform
+    **Step 3: Inverse Laplace transform**
 
     Recall:
 
@@ -226,11 +224,11 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### ✅ Final Answer:
+    **✅ Final Answer:**
 
     \[
     \boxed{f(t) = \frac{8}{3}e^{2t} + \frac{1}{3}e^{-t}, \quad t \ge 0}
-    ```
+    \]
 
 The response includes the PF decomposition alongside the final inverse transform — the model respects the textbook's wording and shows the work. Both the decomposition and $f(t)$ match the textbook. Plain prompt, textbook wording verbatim, zero machinery.
 
@@ -263,7 +261,6 @@ print(resp.choices[0].message.content)
 
 ??? example "Actual output — qwen-plus (2026-04-21)"
 
-    ```text
     We are given the second-order linear nonhomogeneous ODE:
 
     \[
@@ -274,7 +271,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 1: Take Laplace transform of both sides
+    **Step 1: Take Laplace transform of both sides**
 
     Recall Laplace transforms:
 
@@ -309,7 +306,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 2: Partial fraction decomposition
+    **Step 2: Partial fraction decomposition**
 
     Complete the square: \(s^2 + 2s + 2 = (s+1)^2 + 1\).
 
@@ -327,7 +324,7 @@ print(resp.choices[0].message.content)
 
     ---
 
-    ### Step 3: Inverse Laplace transform
+    **Step 3: Inverse Laplace transform**
 
     - \(\frac{-2s + 1}{s^2 + 1} \;\rightarrow\; -2\cos t + \sin t\)
     - For the second term, substitute \(u = s+1\): \(\frac{2s + 3}{(s+1)^2 + 1} = \frac{2u + 1}{u^2 + 1}\), whose inverse (with the \(e^{-t}\) shift) is \(e^{-t}(2\cos t + \sin t)\).
@@ -344,7 +341,6 @@ print(resp.choices[0].message.content)
     - \(y'(0)\): after differentiating and evaluating at 0, get \(1 - 1 = 0\) ✅
 
     Both initial conditions satisfied.
-    ```
 
 The model chains all three stages (Laplace → partial fractions → inverse Laplace) and arrives at the textbook answer, then volunteers a verification that both initial conditions are satisfied — a detail you'd want on a homework submission but didn't prompt for. Still a plain prompt, still deterministic at `temperature=0`.
 
