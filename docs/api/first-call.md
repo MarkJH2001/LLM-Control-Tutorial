@@ -1,5 +1,8 @@
 # First Call
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/first_call.ipynb)
+[![Open in Deepnote](https://deepnote.com/buttons/launch-in-deepnote-small.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/first_call.ipynb)
+
 The smallest possible round-trip to an LLM: send one message, print the reply. Shown for all three providers we cover — all of them use the same `openai` client.
 
 ## Prerequisites
