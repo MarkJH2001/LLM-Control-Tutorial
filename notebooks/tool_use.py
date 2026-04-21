@@ -54,7 +54,7 @@ except ImportError:
 
 if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass
-    which = input("Which provider? (openai / deepseek / qwen) [openai]: ").strip().lower() or "openai"
+    which = input("Which provider? (qwen / deepseek / openai) [qwen]: ").strip().lower() or "qwen"
     os.environ[{"openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
 
 print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
@@ -66,9 +66,9 @@ print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 from openai import OpenAI
 
 PROVIDERS = {
-    "openai":   {"base_url": None,                                                 "env_var": "OPENAI_API_KEY",    "model": "gpt-4o-mini"},
-    "deepseek": {"base_url": "https://api.deepseek.com",                            "env_var": "DEEPSEEK_API_KEY",  "model": "deepseek-chat"},
     "qwen":     {"base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",   "env_var": "DASHSCOPE_API_KEY", "model": "qwen-plus"},
+    "deepseek": {"base_url": "https://api.deepseek.com",                            "env_var": "DEEPSEEK_API_KEY",  "model": "deepseek-chat"},
+    "openai":   {"base_url": None,                                                 "env_var": "OPENAI_API_KEY",    "model": "gpt-4o-mini"},
 }
 
 provider = next((p for p, cfg in PROVIDERS.items() if os.environ.get(cfg["env_var"])), None)

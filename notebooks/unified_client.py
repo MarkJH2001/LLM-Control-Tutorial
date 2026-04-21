@@ -58,7 +58,7 @@ except ImportError:
 
 if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass
-    which = input("Which provider? (openai / deepseek / qwen) [openai]: ").strip().lower() or "openai"
+    which = input("Which provider? (qwen / deepseek / openai) [qwen]: ").strip().lower() or "qwen"
     os.environ[{"openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
 
 print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
@@ -81,13 +81,13 @@ class ProviderConfig:
 
 
 PROVIDERS: dict[str, ProviderConfig] = {
-    "openai":   ProviderConfig(base_url=None,                                                 env_var="OPENAI_API_KEY",    default_model="gpt-4o-mini"),
-    "deepseek": ProviderConfig(base_url="https://api.deepseek.com",                            env_var="DEEPSEEK_API_KEY",  default_model="deepseek-chat"),
     "qwen":     ProviderConfig(base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",   env_var="DASHSCOPE_API_KEY", default_model="qwen-plus"),
+    "deepseek": ProviderConfig(base_url="https://api.deepseek.com",                            env_var="DEEPSEEK_API_KEY",  default_model="deepseek-chat"),
+    "openai":   ProviderConfig(base_url=None,                                                 env_var="OPENAI_API_KEY",    default_model="gpt-4o-mini"),
 }
 
 
-def chat(prompt: str, provider: str = "openai", model: str | None = None, system: str | None = None) -> str:
+def chat(prompt: str, provider: str = "qwen", model: str | None = None, system: str | None = None) -> str:
     cfg = PROVIDERS[provider]
     client = OpenAI(api_key=os.environ[cfg.env_var], base_url=cfg.base_url)
     messages = []
