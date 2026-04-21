@@ -48,6 +48,43 @@ theme:
 
 plugins:
   - search
+  - i18n:
+      docs_structure: suffix
+      fallback_to_default: true
+      reconfigure_material: true
+      reconfigure_search: true
+      languages:
+        - locale: en
+          default: true
+          name: English
+          build: true
+        - locale: zh
+          name: 中文
+          build: true
+          nav_translations:
+            Home: 首页
+            Getting Started: 开始入门
+            Setup: 环境配置
+            API Keys: API 密钥
+            LLM Basics: LLM 基础
+            What is an LLM: 什么是 LLM
+            Tokens: 词元
+            Sampling: 采样
+            Context Window: 上下文窗口
+            Calling the API: 调用 API
+            Get an API Key: 申请 API 密钥
+            OpenAI: OpenAI
+            DeepSeek: DeepSeek
+            Qwen: Qwen
+            First Call: 首次调用
+            Unified Client: 统一客户端
+            Streaming: 流式输出
+            Tool Use: 工具调用
+            Agentic Workflows: 智能体工作流
+            Loops: 循环
+            Memory: 记忆
+            Multi-agent: 多智能体
+            LLM + Control: LLM + 控制
   - glightbox
 
 markdown_extensions:
@@ -79,6 +116,7 @@ markdown_extensions:
       custom_checkbox: true
 
 extra_css:
+  - stylesheets/extra.css
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css
 
 extra_javascript:

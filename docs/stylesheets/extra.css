@@ -1,0 +1,5 @@
+/* Bold the first top-level entry in the primary left sidebar
+   (the "LLM + Control Tutorial" home link). */
+.md-sidebar--primary .md-nav--primary > .md-nav__list > .md-nav__item:first-child > .md-nav__link {
+  font-weight: 700;
+}
