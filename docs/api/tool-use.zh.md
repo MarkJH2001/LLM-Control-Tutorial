@@ -1,5 +1,8 @@
 # 工具调用
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tool_use.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tool_use.ipynb)
+
 LLM 可以请求你的程序运行一个函数，并把结果返回给它。模型看到你提供的工具 schema，自己判断什么时候调一下会有帮助，然后发出一个结构化的函数调用。你去执行这次调用，把结果喂回去，模型据此把回答补全。这让一次性问答变成了一个智能体循环 —— 是 [智能体工作流](../agents/index.md) 章节的基础。
 
 ## 流程

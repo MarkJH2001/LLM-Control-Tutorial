@@ -1,5 +1,8 @@
 # Multi-agent
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_multi_agent.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_multi_agent.ipynb)
+
 "Multi-agent" means running **more than one LLM role** in the same system, each with a narrower job description. The reason to do it is usually one of two: a single agent gets confused when the task mixes concerns (planning + execution, writing + reviewing), or you want genuine parallelism (independent attempts, then pick the best).
 
 Before reaching for multi-agent, ask: can one agent with more tools do this? If yes, stay single-agent. Every additional agent is an extra round-trip — more tokens, more latency, more debugging.

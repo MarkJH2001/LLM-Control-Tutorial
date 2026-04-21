@@ -1,5 +1,8 @@
 # Loops
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_loops.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_loops.ipynb)
+
 An "agent" in the sense we use here is the [tool-use loop](../api/tool-use.md) driven further: the model takes a goal, reasons about which tool to call, runs it, observes the result, and repeats until the goal is met. The page you're reading is about that loop — its shape, how to implement it robustly, and where it tends to go wrong.
 
 ## The shape of the loop

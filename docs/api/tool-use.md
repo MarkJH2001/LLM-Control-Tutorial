@@ -1,5 +1,8 @@
 # Tool Use
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tool_use.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tool_use.ipynb)
+
 LLMs can ask your program to run a function and return the result. The model sees your tool schema, decides when a call would help, emits a structured function invocation, you execute it, feed the result back, and the model uses that to finish its answer. This turns a one-shot Q&A into an agent loop — the foundation for everything in the [Agentic Workflows](../agents/index.md) section.
 
 ## The flow

@@ -1,5 +1,8 @@
 # Streaming
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/streaming.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/streaming.ipynb)
+
 A non-streaming API call blocks until the model is finished, then returns the whole reply at once. **Streaming** returns tokens as they're generated, so a UI can display the answer progressively — the same effect you see in ChatGPT.
 
 You enable streaming with one extra flag. Everything else stays the same.

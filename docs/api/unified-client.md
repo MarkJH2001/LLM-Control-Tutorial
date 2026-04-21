@@ -1,5 +1,8 @@
 # Unified Client
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/unified_client.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/unified_client.ipynb)
+
 OpenAI, DeepSeek, and Qwen all speak the **OpenAI wire format**, which means one `openai` Python client covers all three — you only swap `base_url` and `model`. This page wraps that insight into a small helper so your application code doesn't have to care which provider is underneath.
 
 ## The three providers

@@ -12,6 +12,7 @@ dependencies = [
     "pymdown-extensions>=10.14",
     "mkdocs-glightbox>=0.4",
     "openai>=1.60",
+    "python-dotenv>=1.0",
     "numpy>=2.0",
     "scipy>=1.14",
     "matplotlib>=3.9",

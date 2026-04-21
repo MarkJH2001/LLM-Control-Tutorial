@@ -1,5 +1,8 @@
 # Memory
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_memory.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_memory.ipynb)
+
 LLMs are **stateless**. Every API call starts from scratch — the model remembers nothing between calls. Any "memory" an agent has is something *your code* is reassembling and feeding in as part of the `messages` list each turn.
 
 That sounds limiting, but it gives you clean control: memory is just data you decide to include. The question becomes **what to keep, what to drop, and where to put it**.

@@ -1,5 +1,8 @@
 # 统一客户端
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/unified_client.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/unified_client.ipynb)
+
 OpenAI、DeepSeek 和 Qwen 全都遵循 **OpenAI 的接口协议**，也就是说一份 `openai` Python 客户端代码可以同时覆盖这三家 —— 你只需要换 `base_url` 和 `model`。本页把这个观察封装成一个小辅助函数，这样你的应用代码就不必关心底下用的是哪一家。
 
 ## 三家服务商

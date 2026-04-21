@@ -1,5 +1,8 @@
 # 流式输出
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/streaming.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/streaming.ipynb)
+
 一次非流式的 API 调用会一直阻塞到模型生成完毕，然后把整段回复一次性返回。**流式** 则让词元在生成的同时返回，UI 就能一边接收一边展示 —— 就是你在 ChatGPT 里看到的那种效果。
 
 只需多加一个参数就能启用流式。其余逻辑完全一致。

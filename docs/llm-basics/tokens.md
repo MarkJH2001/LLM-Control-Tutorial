@@ -1,5 +1,8 @@
 # Tokens
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tokens.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tokens.ipynb)
+
 The model does not see your text — it sees **tokens**, a fixed vocabulary of roughly 50k–200k subword units built by Byte Pair Encoding (BPE) or a similar algorithm. Three consequences:
 
 - Every API call is billed per token, not per character.

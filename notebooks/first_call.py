@@ -63,6 +63,13 @@ if userdata is not None:
         if v:
             os.environ[k] = v
 
+# Local: pick up .env if python-dotenv is installed.
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass
+
 # If nothing was loaded, prompt for one (works in Deepnote / local too).
 if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass

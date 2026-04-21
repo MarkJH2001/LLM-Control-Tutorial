@@ -1,5 +1,8 @@
 # 多智能体
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_multi_agent.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_multi_agent.ipynb)
+
 "多智能体" 是指在同一系统里让 **多个 LLM 角色** 同时跑，每个角色的职责都更窄。通常出于两个理由：单个智能体在混合型任务上容易混乱（"规划 + 执行"、"写 + 审阅"）；或者你确实想要并行（让多个独立尝试同时发生，再挑最好的那一个）。
 
 动手做多智能体之前先问一句：一个带更多工具的单智能体够不够用？够用就留在单智能体。每多一个智能体都等于多一次往返 —— 更多词元、更高延迟、更难调试。

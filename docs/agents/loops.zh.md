@@ -1,5 +1,8 @@
 # 循环
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_loops.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_loops.ipynb)
+
 我们这里说的 "智能体" 就是 [工具调用循环](../api/tool-use.md) 的进一步延伸：模型接到一个目标，推理应该调哪个工具，运行那个工具，观察结果，然后重复，直到目标达成。本页讨论这个循环 —— 它的形状、怎么实现才稳、以及最容易出错的地方。
 
 ## 循环的形状

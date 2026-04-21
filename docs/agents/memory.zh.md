@@ -1,5 +1,8 @@
 # 记忆
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_memory.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/agents_memory.ipynb)
+
 LLM 是 **无状态** 的。每次 API 调用都从零开始 —— 模型在两次调用之间什么都记不住。一个智能体所谓的 "记忆"，其实是 *你的代码* 在每一轮把它拼起来，再塞进 `messages` 列表。
 
 听起来限制很多，但它让控制变得干净，记忆无非是你决定塞进去的那些数据。问题变成 **保留什么、丢掉什么、放在哪儿**。

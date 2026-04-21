@@ -1,5 +1,8 @@
 # 词元
 
+[![Open in Colab](../assets/colab-badge.svg)](https://colab.research.google.com/github/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tokens.ipynb)
+[![Open in Deepnote](../assets/deepnote-badge.svg)](https://deepnote.com/launch?url=https://github.com/MarkJH2001/LLM-Control-Tutorial/blob/main/notebooks/tokens.ipynb)
+
 模型看不见你写的文字 —— 它看到的是**词元**，一个大约包含 5 万至 20 万个子词单元的固定词表，由字节对编码（BPE）或类似算法构建。这带来三个直接后果：
 
 - 每次 API 调用按词元计费，不是按字符。
