@@ -6,7 +6,7 @@
 #       extension: .py
 #       format_name: percent
 #       format_version: '1.3'
-#       jupytext_version: 1.16.4
+#       jupytext_version: 1.19.1
 #   kernelspec:
 #     display_name: Python 3
 #     language: python
@@ -31,9 +31,11 @@
 # %% [markdown]
 # ## 2. Load an API key
 #
-# - **Colab:** open the 🔑 **Secrets** panel in the left sidebar and add one of
-#   `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, or `DASHSCOPE_API_KEY`. The cell below
-#   picks it up automatically.
+# - **Colab:** open the 🔑 **Secrets** panel in the left sidebar and add at least
+#   one of `OPENAI_API_KEY`, `DEEPSEEK_API_KEY`, or `DASHSCOPE_API_KEY`.
+#   **Also flip the "Notebook access" toggle on that secret** — the first time a
+#   cell tries to read it, Colab pops a dialog asking for permission; if you
+#   dismiss the dialog the secret stays inaccessible.
 # - **Deepnote / local:** set the same env var in your workspace, or accept the
 #   prompt below.
 #
@@ -42,44 +44,60 @@
 # %%
 import os
 
+KEY_VARS = ("OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")
+
+# Try Colab Secrets. Each get() can raise if the secret is missing OR if the
+# per-notebook access toggle is off — handle each key independently so one
+# missing key doesn't skip the others.
 try:
     from google.colab import userdata  # Colab only
-    for k in ("OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY"):
-        v = userdata.get(k)
+except ImportError:
+    userdata = None
+
+if userdata is not None:
+    for k in KEY_VARS:
+        try:
+            v = userdata.get(k)
+        except Exception:
+            v = None
         if v:
             os.environ[k] = v
-except Exception:
-    pass
 
-if not any(os.environ.get(k) for k in ("OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")):
+# If nothing was loaded, prompt for one (works in Deepnote / local too).
+if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass
-    os.environ["OPENAI_API_KEY"] = getpass("Paste your OPENAI_API_KEY: ")
+    which = input("Which provider? (openai / deepseek / qwen) [openai]: ").strip().lower() or "openai"
+    os.environ[{"openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass(
+        f"Paste your key: "
+    )
+
+print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 
 # %% [markdown]
 # ## 3. Pick a provider
 #
-# Uncomment exactly one block. All three use the `openai` SDK — only `base_url` and `model` change.
+# Auto-detected from whichever key is loaded. Override `provider` below if you
+# want to force a specific one.
 
 # %%
 from openai import OpenAI
 
-# ----- OpenAI (default) -----
-client = OpenAI(api_key=os.environ["OPENAI_API_KEY"])
-model = "gpt-4o-mini"
+PROVIDERS = {
+    "openai":   {"base_url": None,                                                 "env_var": "OPENAI_API_KEY",    "model": "gpt-4o-mini"},
+    "deepseek": {"base_url": "https://api.deepseek.com",                            "env_var": "DEEPSEEK_API_KEY",  "model": "deepseek-chat"},
+    "qwen":     {"base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",   "env_var": "DASHSCOPE_API_KEY", "model": "qwen-plus"},
+}
 
-# ----- DeepSeek -----
-# client = OpenAI(
-#     api_key=os.environ["DEEPSEEK_API_KEY"],
-#     base_url="https://api.deepseek.com",
-# )
-# model = "deepseek-chat"
+# Auto-detect based on which key is set. Set `provider = "qwen"` (etc.) to override.
+provider = next((p for p, cfg in PROVIDERS.items() if os.environ.get(cfg["env_var"])), None)
+if provider is None:
+    raise RuntimeError(f"No API key loaded. Set one of {KEY_VARS} and re-run section 2.")
 
-# ----- Qwen -----
-# client = OpenAI(
-#     api_key=os.environ["DASHSCOPE_API_KEY"],
-#     base_url="https://dashscope.aliyuncs.com/compatible-mode/v1",
-# )
-# model = "qwen-plus"
+cfg = PROVIDERS[provider]
+client = OpenAI(api_key=os.environ[cfg["env_var"]], base_url=cfg["base_url"])
+model = cfg["model"]
+
+print(f"Using provider={provider}, model={model}")
 
 # %% [markdown]
 # ## 4. Hello world
