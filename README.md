@@ -2,8 +2,6 @@
 
 An applied tutorial covering **LLM fundamentals**, **API usage**, and **agentic workflows**, with a control-systems angle.
 
-Built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
-
 📖 **Live site:** <https://markjh2001.github.io/LLM-Control-Tutorial/>
 
 ## What's covered

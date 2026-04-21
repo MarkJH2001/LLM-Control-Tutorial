@@ -16,10 +16,13 @@ dependencies = [
     "scipy>=1.14",
     "matplotlib>=3.9",
     "control>=0.10",
+    "sympy>=1.13",
 ]
 
 [project.optional-dependencies]
 dev = [
     "ruff>=0.8",
     "jupytext>=1.16",
+    "jupyterlab>=4.2",
+    "ipykernel>=6.29",
 ]

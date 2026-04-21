@@ -87,6 +87,9 @@ extra_javascript:
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js
   - https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js
 
+extra:
+  generator: false
+
 nav:
   - Home: index.md
   - Getting Started:
@@ -117,3 +120,4 @@ nav:
       - Multi-agent: agents/multi-agent.md
   - LLM + Control:
       - control/index.md
+      - Laplace Transforms (HW 2 & 3): control/laplace.md
