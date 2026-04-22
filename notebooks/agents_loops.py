@@ -30,7 +30,7 @@
 # %%
 import os
 
-KEY_VARS = ("OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")
+KEY_VARS = ("SJTU_API_KEY", "OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")
 
 try:
     from google.colab import userdata
@@ -54,8 +54,8 @@ except ImportError:
 
 if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass
-    which = input("Which provider? (qwen / deepseek / openai) [qwen]: ").strip().lower() or "qwen"
-    os.environ[{"openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
+    which = input("Which provider? (sjtu / qwen / deepseek / openai) [sjtu]: ").strip().lower() or "sjtu"
+    os.environ[{"sjtu": "SJTU_API_KEY", "openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
 
 print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 
@@ -66,6 +66,7 @@ print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 from openai import OpenAI
 
 PROVIDERS = {
+    "sjtu":     {"base_url": "https://models.sjtu.edu.cn/api/v1",                   "env_var": "SJTU_API_KEY",      "model": "deepseek-chat"},
     "qwen":     {"base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",   "env_var": "DASHSCOPE_API_KEY", "model": "qwen-plus"},
     "deepseek": {"base_url": "https://api.deepseek.com",                            "env_var": "DEEPSEEK_API_KEY",  "model": "deepseek-chat"},
     "openai":   {"base_url": None,                                                 "env_var": "OPENAI_API_KEY",    "model": "gpt-4o-mini"},

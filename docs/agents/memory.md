@@ -30,6 +30,19 @@ The cheapest working-memory strategy. When the `messages` list gets too long, ke
 
 All three providers we cover use the `openai` SDK; only the client and model differ.
 
+=== "SJTU"
+
+    SJTU's OpenAI-compatible gateway at `models.sjtu.edu.cn` exposes `deepseek-chat` and other models (campus-network / VPN only). Same code shape as DeepSeek — just swap the key env var and the base URL.
+
+    ```python
+    from openai import OpenAI
+    client = OpenAI(
+        api_key=os.environ["SJTU_API_KEY"],
+        base_url="https://models.sjtu.edu.cn/api/v1",
+    )
+    model = "deepseek-chat"
+    ```
+
 === "OpenAI"
 
     ```python

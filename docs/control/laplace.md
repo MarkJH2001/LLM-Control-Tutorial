@@ -346,4 +346,4 @@ The model chains all three stages (Laplace → partial fractions → inverse Lap
 
 ## Next
 
-Back to the [LLM + Control overview](index.md), or forward to the upcoming Routh–Hurwitz page.
+Back to the [LLM + Control overview](index.md), or forward to [Control Plots](plots.md).

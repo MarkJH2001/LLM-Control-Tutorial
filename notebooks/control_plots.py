@@ -32,7 +32,7 @@
 # %%
 import os
 
-KEY_VARS = ("OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")
+KEY_VARS = ("SJTU_API_KEY", "OPENAI_API_KEY", "DEEPSEEK_API_KEY", "DASHSCOPE_API_KEY")
 
 try:
     from google.colab import userdata
@@ -56,8 +56,8 @@ except ImportError:
 
 if not any(os.environ.get(k) for k in KEY_VARS):
     from getpass import getpass
-    which = input("Which provider? (qwen / deepseek / openai) [qwen]: ").strip().lower() or "qwen"
-    os.environ[{"openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
+    which = input("Which provider? (sjtu / qwen / deepseek / openai) [sjtu]: ").strip().lower() or "sjtu"
+    os.environ[{"sjtu": "SJTU_API_KEY", "openai": "OPENAI_API_KEY", "deepseek": "DEEPSEEK_API_KEY", "qwen": "DASHSCOPE_API_KEY"}[which]] = getpass("Paste your key: ")
 
 print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 
@@ -68,6 +68,7 @@ print("Keys detected:", [k for k in KEY_VARS if os.environ.get(k)])
 from openai import OpenAI
 
 PROVIDERS = {
+    "sjtu":     {"base_url": "https://models.sjtu.edu.cn/api/v1",                   "env_var": "SJTU_API_KEY",      "model": "deepseek-chat"},
     "qwen":     {"base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",   "env_var": "DASHSCOPE_API_KEY", "model": "qwen-plus"},
     "deepseek": {"base_url": "https://api.deepseek.com",                            "env_var": "DEEPSEEK_API_KEY",  "model": "deepseek-chat"},
     "openai":   {"base_url": None,                                                 "env_var": "OPENAI_API_KEY",    "model": "gpt-4o-mini"},
@@ -231,19 +232,19 @@ def run_agent(user_message: str, max_steps: int = 5) -> str:
     return messages[-1].get("content", "")
 
 # %% [markdown]
-# ## 7. Example 1 — root locus of $G(s) = 1/(s^2 + 2s + 1)$
+# ## 7. Example 1 — Root locus
 
 # %%
 print(run_agent("Plot the root locus of G(s) = 1 / (s^2 + 2s + 1)."))
 
 # %% [markdown]
-# ## 8. Example 2 — Bode of $G(s) = (s+2)/(s^3 + 5s^2 + 8s + 4)$
+# ## 8. Example 2 — Bode plot
 
 # %%
 print(run_agent("Draw the Bode plot of G(s) = (s + 2) / (s^3 + 5 s^2 + 8 s + 4)."))
 
 # %% [markdown]
-# ## 9. Example 3 — Nyquist of $G(s) = 10 / (s(s+1)(s+5))$
+# ## 9. Example 3 — Nyquist plot
 
 # %%
 print(run_agent("Generate the Nyquist plot of G(s) = 10 / (s (s + 1) (s + 5))."))
@@ -251,4 +252,4 @@ print(run_agent("Generate the Nyquist plot of G(s) = 10 / (s (s + 1) (s + 5)).")
 # %% [markdown]
 # ## Next
 #
-# Back to the [LLM + Control overview](https://markjh2001.github.io/LLM-Control-Tutorial/control/), or forward to the upcoming Routh–Hurwitz page.
+# Back to the [LLM + Control overview](https://markjh2001.github.io/LLM-Control-Tutorial/control/).

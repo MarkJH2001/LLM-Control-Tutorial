@@ -186,4 +186,4 @@ Neither alone is sufficient. A plain prompt could produce a textbook-style *desc
 
 ## Next
 
-Back to the [LLM + Control overview](index.md), or forward to the upcoming Routh–Hurwitz page.
+Back to the [LLM + Control overview](index.md), or forward to [PID Tuning](pid.md).

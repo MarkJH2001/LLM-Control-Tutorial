@@ -191,4 +191,4 @@ A **central agent** reads the user's plant and routes to the matching sub-agent.
 
 ## Next
 
-Back to the [LLM + Control overview](index.md), or forward to the upcoming Routh–Hurwitz page.
+Back to the [LLM + Control overview](index.md), or forward to [Real-World Applications](applications.md).

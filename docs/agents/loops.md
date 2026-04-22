@@ -32,6 +32,19 @@ Same pattern as [Tool Use](../api/tool-use.md), now wrapped in a function with a
 
 All three providers we cover use the `openai` SDK, so only two lines — the client construction and the model ID — change between them:
 
+=== "SJTU"
+
+    SJTU's OpenAI-compatible gateway at `models.sjtu.edu.cn` exposes `deepseek-chat` and other models (campus-network / VPN only). Same code shape as DeepSeek — just swap the key env var and the base URL.
+
+    ```python
+    from openai import OpenAI
+    client = OpenAI(
+        api_key=os.environ["SJTU_API_KEY"],
+        base_url="https://models.sjtu.edu.cn/api/v1",
+    )
+    model = "deepseek-chat"
+    ```
+
 === "OpenAI"
 
     ```python

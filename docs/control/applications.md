@@ -106,4 +106,4 @@ The shape repeats: wherever an LLM is in the loop, something deterministic — a
 
 ## Next
 
-Back to the [LLM + Control overview](index.md), or forward to the upcoming Routh–Hurwitz page.
+Back to the [LLM + Control overview](index.md).

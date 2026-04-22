@@ -1,17 +1,18 @@
 # Get an API Key
 
-You need at least one provider's API key to run the tutorials in this section. All three providers we cover speak the **OpenAI wire format**, so one `openai` Python client works for all of them — you just swap `base_url` and `model`.
+You need at least one provider's API key to run the tutorials in this section. All providers we cover speak the **OpenAI wire format**, so one `openai` Python client works for all of them — you just swap `base_url` and `model`.
 
 ## Provider at a glance
 
-| Provider | SDK to install                   | Best for                          | Notes                                      |
-|----------|----------------------------------|-----------------------------------|--------------------------------------------|
-| OpenAI   | `openai`                         | Broadest ecosystem, most examples | Requires credit top-up before use          |
-| DeepSeek | `openai` (compat endpoint)       | Low cost, strong reasoning        | Reuses the `openai` client, swap `base_url`|
-| Qwen     | `openai` (compat) or `dashscope` | Free tier available, open models  | Served via DashScope (Aliyun account)      |
+| Provider | SDK to install                   | Best for                             | Notes                                               |
+|----------|----------------------------------|--------------------------------------|-----------------------------------------------------|
+| OpenAI   | `openai`                         | Broadest ecosystem, most examples    | Requires credit top-up before use                   |
+| DeepSeek | `openai` (compat endpoint)       | Low cost, strong reasoning           | Reuses the `openai` client, swap `base_url`         |
+| Qwen     | `openai` (compat) or `dashscope` | Free tier available, open models     | Served via DashScope (Aliyun account)               |
+| SJTU     | `openai` (compat endpoint)       | SJTU students/staff, generous quota  | Campus-network / VPN only; hosts DeepSeek, GLM, etc.|
 
 !!! tip "Pick one to start"
-    If you are unsure, start with **OpenAI** (most examples online) or **DeepSeek** (cheapest). You can add more providers later — the [unified client](../unified-client.md) pattern uses one codebase across all three.
+    If you are unsure, start with **OpenAI** (most examples online) or **DeepSeek** (cheapest). **SJTU** is an option if you're affiliated with Shanghai Jiao Tong University. You can add more providers later — the [unified client](../unified-client.md) pattern uses one codebase across all of them.
 
 ## Safe key handling
 
@@ -28,3 +29,4 @@ See [API Keys](../../getting-started/api-keys.md) in Getting Started for the `.e
 - [OpenAI](openai.md)
 - [DeepSeek](deepseek.md)
 - [Qwen](qwen.md)
+- [SJTU](sjtu.md) — campus-only

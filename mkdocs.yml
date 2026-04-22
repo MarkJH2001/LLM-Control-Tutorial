@@ -109,6 +109,7 @@ nav:
           - OpenAI: api/get-a-key/openai.md
           - DeepSeek: api/get-a-key/deepseek.md
           - Qwen: api/get-a-key/qwen.md
+          - SJTU: api/get-a-key/sjtu.md
       - First Call: api/first-call.md
       - Unified Client: api/unified-client.md
       - Streaming: api/streaming.md
