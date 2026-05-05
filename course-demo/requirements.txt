@@ -1,0 +1,6 @@
+openai>=1.60
+python-dotenv>=1.0
+control>=0.10
+matplotlib>=3.9
+gradio>=4.0
+streamlit>=1.30

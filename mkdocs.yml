@@ -129,4 +129,5 @@ nav:
       - course-project/index.md
       - Aircraft Attitude Control Agent: course-project/llm-agent.md
       - Beginner Template: course-project/beginner-template.md
+      - Demo: course-project/demo.md
       - Q&A: course-project/qa.md
