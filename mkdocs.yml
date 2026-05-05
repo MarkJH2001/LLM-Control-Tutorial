@@ -125,3 +125,8 @@ nav:
       - Control Plots: control/plots.md
       - PID Tuning: control/pid.md
       - Real-World Applications: control/applications.md
+  - Course Project:
+      - course-project/index.md
+      - Aircraft Attitude Control Agent: course-project/llm-agent.md
+      - Beginner Template: course-project/beginner-template.md
+      - Q&A: course-project/qa.md
